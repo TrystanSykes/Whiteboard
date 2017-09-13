@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+
+/*body {
+  background-color: black;
+  text-align: center;
+}*/
+
+.keyboard ul {
+  color: black;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.keyboard li {
+  display: inline-block;
+/*  border: 1px solid white;*/
+  text-align: center;
+  padding: 10px;
+  font-size: 2em;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.wrong ul {
+  color: black;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.wrong li {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  color: black;
+}
+
+.wrong-box {
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  width: 35%;
+}
+
+.turns {
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+
+}
+
+.word-display {
+  width: 60%;
+  margin: 30vh auto;
+  display: block;
+  text-align: center;
+  font-size: 5em;
+  color: black;
+}
+

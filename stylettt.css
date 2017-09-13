@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  background: url('wbbg.jpg');
+  background-size: 100vw 100vh;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+.board {
+  width: 60vw;
+  height: 60vw;
+  display: table;
+  text-align: center;
+  margin: 5vh auto 0;
+  background-position: center;
+  background-size: zoom;
+  padding: 0;
+  border: none;
+} 
+
+@media screen and (min-width: 640px) {
+  .board {
+  width: 60vh;
+  height: 60vh;
+  }
+}
+.tablerows div {
+  width: 33.3333%;
+  height: 33.3333%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: 10px;
+  font-size: 4em;
+  /*line-height: 110px;*/
+  background-color: transparent;
+  border: 4px solid black;
+  padding: 0;
+}
+
+.tablerows {
+  display: table-row;
+  border: none;
+  padding: 0;
+}
+
+.tablerows .pos1, .tablerows .pos2, .tablerows .pos3 {
+  border-top: none;
+}
+
+.tablerows .pos1, .tablerows .pos4, .tablerows .pos7 {
+  border-left: none;
+}
+
+.tablerows .pos3, .tablerows .pos6, .tablerows .pos9 {
+  border-right: none;
+}
+
+.tablerows .pos7, .tablerows .pos8, .tablerows .pos9 {
+  border-bottom: none;
+}
+
+.board-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.xturn-box {
+  color: red;
+  opacity: 0;
+  transition: 0.5s;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 3em;
+  text-align: center;
+  width: 15%;
+  margin: 20px;
+}
+
+.oturn-box {
+  color: blue;
+  opacity: 0;
+  transition: 0.5s;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 3em;
+  text-align: center;
+  width: 15%;
+  margin: 20px;
+}
+
+.results {
+  font-size: 3em;
+  /*width: 20%;
+  height: 20%;*/
+  display: none;
+  background: url('wbbg.jpg');
+  background-size: 100vw 100vh;
+}
+
+.cover-all {
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: 1s;
+}
+
+.win-box {
+  /*border: 20px solid black;*/
+  padding: 20vh 0;
+  width: 100vh; 
+  height: 100vh;
+  line-height: 30vh;
+  float: center;
+  display: inline-block;
+  font-size: 4em;
+  transition: 1s;
+  /*border-top-left-radius: 255px 15px;
+  border-top-right-radius: 200px 20px;
+  border-bottom-right-radius: 10px 300px;
+  border-bottom-left-radius: 5px 150px;*/
+}
+
+.red {
+  color: red;
+  border-color: red;
+}
+
+.blue {
+  color: blue;
+  border-color: blue;
+}
+
+.reset-ttt {
+  position: fixed;
+  bottom: 0;
+  right: 30%;
+  z-index: 1001;
+  width: 30vh;
+  height: 10vh;
+  margin-top: 40px;
+  background: url('duster.png');
+  background-size: cover;
+  background-repeat: none;
+  border: none;
+  box-shadow: none;
+  font-size: 1.5em;
+  color: white;
+  background-color: transparent;
+}
+
+.x-wins li, .o-wins li {
+  display: inline;
+}
+
+.x-wins {
+  margin-top: 20vh;
+  float: left;
+  color: red;
+  font-size: 1.5em;
+  width: 15%;
+  text-align: left;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+
+.o-wins {
+  margin-top: 20vh;
+  float: right;
+  color: blue;
+  font-size: 1.5em;
+  width: 15%;
+  text-align: right;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+
+.hangman {
+  display: none;
+}
+
+/*.tictactoe {
+  display: none;
+}*/

@@ -5,7 +5,7 @@
 var teamO = {
   piece: 'O'
 };
-var line = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+var line = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 var board = [];
 
 var boardPos;
@@ -13,10 +13,16 @@ var linePos;
 var currentPos = ' '
 var winArr = [];
 
+
+
 var displayedBoard = document.querySelector('.board');
 var xTurnBox = document.querySelector('.xturn-box');
 var oTurnBox = document.querySelector('.oturn-box');
 var results = document.querySelector('.results');
+var resetBtn = document.querySelector('.reset-ttt');
+var xWins = document.querySelector('.x-wins');
+var oWins = document.querySelector('.o-wins');
+
 
 var createBoard = function() {
   while (board.length < 3) {
@@ -46,12 +52,17 @@ var displayTurn = function() {
 var capturePos = function() {
   if (event.target.className === 'board') {
     return;
+  } else if (event.target.className === 'tablerows') {
+    return;
   } else {
     boardPos = event.target.dataset['1st'];
     linePos = event.target.dataset['2nd'];
-    currentPos = event.target.className;
+    currentPos = event.target.classList[0];
+    if (board[boardPos][linePos] !== " ") {
+      return;
+    } else
+      runTurn();
   }
-  runTurn();
 }
 
 
@@ -60,11 +71,17 @@ var playerTurn = function(team, boardPos, linePos, currentPos) {
     board[boardPos][linePos] = team.piece;
     var boxToChange = document.querySelector('.' + currentPos);
     boxToChange.textContent = team.piece;
+    if (team === teamX) {
+      boxToChange.classList.add('red');
+    } else {
+      boxToChange.classList.add('blue');
+    }
   } else {
     return;
   }
   displayTurn();
   checkWin(team);
+  checkDraw();
 }
 
 var runTurn = function() {
@@ -89,7 +106,7 @@ var horizWin = function(team) {
     horiz = winArr[0].join('');
     if (horiz === 'XXX' || horiz === 'OOO') {
       displayWin(team);
-      console.log(team.piece + ' wins!');
+      winArr.splice(0,3);
     } else {
       winArr.splice(0,3);
     }
@@ -104,7 +121,7 @@ var vertWin = function(team) {
     vert = winArr.join('');
     if (vert === 'XXX' || vert === 'OOO') {
       displayWin(team);
-      console.log(team.piece + ' wins!');
+      winArr.splice(0,3);
     } else {
       winArr.splice(0,3);
     }
@@ -118,7 +135,7 @@ var diagWin = function (team) {
   diag = winArr.join('');
     if (diag === 'XXX' || diag === 'OOO') {
       displayWin(team);
-      console.log(team.piece + ' wins!');
+      winArr.splice(0,3);
     } else {
         winArr.splice(0,3);
         winArr.push(board[0][2]);
@@ -127,7 +144,7 @@ var diagWin = function (team) {
         diag = winArr.join('');
         if (diag === 'XXX' || diag === 'OOO') {
           displayWin(team);
-          console.log(team.piece + ' wins!');
+          winArr.splice(0,3);
         } else {
           winArr.splice(0,3);
     }
@@ -138,11 +155,85 @@ var displayWin = function(team) {
   oTurnBox.style.opacity = 0;
   xTurnBox.style.opacity = 0;
   var winBox = document.createElement('div');
+  winBox.className = 'win-box';
+  if (team === teamX) {
+    winBox.classList.add('red')
+    win = createWinRecord();
+    xWins.appendChild(win);
+  } else {
+    winBox.classList.add('blue')
+    win = createWinRecord();
+    oWins.appendChild(win);
+  }
   winBox.textContent = team.piece + " WINS!";
   results.appendChild(winBox);
+  results.classList.add('cover-all');
+  results.style.display = 'block';
 }
+
+var createWinRecord = function () {
+  var win = document.createElement('li');
+  win.textContent = 'I';
+  return win;
+}
+
+var reset = function () { 
+  resetWinBox();
+  resetBoardValues();
+  resetBoard();
+}
+
+var resetWinBox = function () {
+  if (results.hasChildNodes()) {
+    var winBox = document.querySelector('.win-box');
+    results.removeChild(winBox);
+    results.style.display = 'none';
+  }
+};
+
+var resetBoardValues = function () {
+  turn = pickTrueorFalse();
+  displayTurn();
+  for (var i = 1; i <= 9; i++) {
+    var boxToClear = document.querySelector('.pos' + i);
+    boxToClear.textContent = ' ';
+    if (boxToClear.classList.length === 2) {
+      boxToClear.classList.remove('red', 'blue');
+    }
+  }
+};
+
+var resetBoard = function () {
+  line = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+  board = [];
+  createBoard();
+  displayedBoard = document.querySelector('.board');
+  displayedBoard.addEventListener('click', capturePos);
+};
+
+var checkDraw = function () {
+  var drawArr = [];
+  board.forEach(function(line) {
+    drawArr.push(line);
+    })
+  var wholeBoard = drawArr[0].concat(drawArr[1], drawArr[2]);
+  var blank = wholeBoard.indexOf(' ');
+  if (blank < 0) {
+    if (results.hasChildNodes() === false) {
+      var winBox = document.createElement('div');
+      winBox.className = 'win-box';
+      winBox.textContent = 'Draw!';
+      results.appendChild(winBox);
+      results.classList.add('cover-all');
+      results.style.display = 'block';
+    }
+  }
+};
+
 
 var turn = pickTrueorFalse();
 createBoard();
 displayTurn();
 displayedBoard.addEventListener('click', capturePos);
+results.addEventListener('click', reset);
+resetBtn.addEventListener('click', reset);
