@@ -5,6 +5,7 @@
 var teamO = {
   piece: 'O'
 };
+
 var line = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 var board = [];
 
@@ -22,7 +23,10 @@ var results = document.querySelector('.results');
 var resetBtn = document.querySelector('.reset-ttt');
 var xWins = document.querySelector('.x-wins');
 var oWins = document.querySelector('.o-wins');
-
+var changeBtn = document.querySelector('.change-game');
+var flipper = document.querySelector('.flipper');
+var hangman = document.querySelector('.hangman');
+var tictactoe = document.querySelector('.tictactoe');
 
 var createBoard = function() {
   while (board.length < 3) {
@@ -181,6 +185,7 @@ var reset = function () {
   resetWinBox();
   resetBoardValues();
   resetBoard();
+  resetHangman();
 }
 
 var resetWinBox = function () {
@@ -230,10 +235,17 @@ var checkDraw = function () {
   }
 };
 
+var flip = function () {
+  flipper.classList.toggle("flip");
+  tictactoe.classList.add('display-none');
+  hangman.classList.remove('display-none');
+}
 
 var turn = pickTrueorFalse();
 createBoard();
 displayTurn();
+hangman.classList.add('display-none');
 displayedBoard.addEventListener('click', capturePos);
+changeBtn.addEventListener('click', flip);
 results.addEventListener('click', reset);
 resetBtn.addEventListener('click', reset);

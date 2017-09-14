@@ -2,25 +2,22 @@
   box-sizing: border-box;
 }
 
-/*body {
-  background-color: black;
-  text-align: center;
-}*/
 
 .keyboard ul {
   color: black;
   list-style: none;
   display: inline-block;
   text-align: center;
+  padding: 10px;
+  margin: 0;
 }
 
 .keyboard li {
   display: inline-block;
-/*  border: 1px solid white;*/
   text-align: center;
   padding: 10px;
-  font-size: 2em;
-  color: black;
+  font-size: 3em;
+  /*color: black;*/
   margin-bottom: 5px;
 }
 
@@ -29,6 +26,7 @@
   list-style: none;
   display: inline-block;
   text-align: center;
+  width: 35%;
 }
 
 .wrong li {
@@ -44,10 +42,11 @@
   top: 0;
   left: 0;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 2em;
   color: black;
-  text-align: center;
+  text-align: left;
   width: 35%;
+  padding-left: 40px;
 }
 
 .turns {
@@ -56,18 +55,24 @@
   top: 0;
   right: 0;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 2em;
   color: black;
   text-align: center;
 
 }
 
 .word-display {
-  width: 60%;
-  margin: 30vh auto;
+  width: 70%;
+  padding-top: 30vh;
+  padding-bottom: 15vh; 
+  margin: 0 auto;
   display: block;
   text-align: center;
   font-size: 5em;
   color: black;
 }
 
+.used {
+  text-decoration: line-through;
+  color: red;
+}

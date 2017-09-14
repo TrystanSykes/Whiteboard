@@ -8,77 +8,81 @@
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 </head>
 <body>
-<section class="tictactoe">
-  <div class="results"></div>
-  <h1>Tic-Tac-Toe</h1>
-  <div class='board-container'>
-    <div class="xturn-box">X, it is your turn</div>
-    <ul class="x-wins">Wins<br>
-    </ul>
-    <div class="oturn-box">O, it is your turn</div>
-    <ul class="o-wins">Wins<br>
-    </ul>
-    <div class="board">
-      <div class ='tablerows'>
-        <div class='pos1' data-1st=0 data-2nd=0></div>
-        <div class='pos2' data-1st=0 data-2nd=1></div>
-        <div class='pos3' data-1st=0 data-2nd=2></div>
-      </div>
-      <div class ='tablerows'>
-        <div class='pos4' data-1st=1 data-2nd=0></div>
-        <div class='pos5' data-1st=1 data-2nd=1></div>
-        <div class='pos6' data-1st=1 data-2nd=2></div>
-      </div>
-      <div class ='tablerows'>
-        <div class='pos7' data-1st=2 data-2nd=0></div>
-        <div class='pos8' data-1st=2 data-2nd=1></div>
-        <div class='pos9' data-1st=2 data-2nd=2></div>
+    <div class="results"></div>
+<div class='flipper'>
+  <section class="tictactoe">
+    <h1>Tic-Tac-Toe</h1>
+    <div class='board-container'>
+      <div class="xturn-box">X, it is your turn</div>
+      <ul class="x-wins">Wins<br>
+      </ul>
+      <div class="oturn-box">O, it is your turn</div>
+      <ul class="o-wins">Wins<br>
+      </ul>
+      <div class="board">
+        <div class ='tablerows'>
+          <div class='pos1' data-1st=0 data-2nd=0></div>
+          <div class='pos2' data-1st=0 data-2nd=1></div>
+          <div class='pos3' data-1st=0 data-2nd=2></div>
+        </div>
+        <div class ='tablerows'>
+          <div class='pos4' data-1st=1 data-2nd=0></div>
+          <div class='pos5' data-1st=1 data-2nd=1></div>
+          <div class='pos6' data-1st=1 data-2nd=2></div>
+        </div>
+        <div class ='tablerows'>
+          <div class='pos7' data-1st=2 data-2nd=0></div>
+          <div class='pos8' data-1st=2 data-2nd=1></div>
+          <div class='pos9' data-1st=2 data-2nd=2></div>
+        </div>
       </div>
     </div>
-  </div>
-  <button class='reset-ttt' >Reset</button>
-</section>
-<section class="hangman">
-  <div class="wrong-box">
-    <p>Letter's Guessed:</p>
-    <ul class="wrong"></ul>
-  </div>
-  <div class="turns">
-    <p>Turns Left:</p>
-    <div class="xs"><span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span></div>
-  </div>
-  <div class="word-display"></div>
+    <button class="change-game">Change Game</button>
+    <button class='reset-ttt' >Reset</button>
+  </section>
 
-<ul class="keyboard">
-  <li>A</li>
-  <li>B</li>
-  <li>C</li>
-  <li>D</li>
-  <li>E</li>
-  <li>F</li>
-  <li>G</li>
-  <li>H</li>
-  <li>I</li>
-  <li>J</li>
-  <li>K</li>
-  <li>L</li>
-  <li>M</li>
-  <li>N</li>
-  <li>O</li>
-  <li>P</li>
-  <li>Q</li>
-  <li>R</li>
-  <li>S</li>
-  <li>T</li>
-  <li>U</li>
-  <li>V</li>
-  <li>W</li>
-  <li>X</li>
-  <li>Y</li>
-  <li>Z</li>
-</ul>
-
-</section>
+  <section class="hangman">
+    <div class="wrong-box">
+      <p>Letter's Guessed:</p>
+      <ul class="wrong"></ul>
+    </div>
+    <div class="turns">
+      <p>Turns Left:</p>
+      <div class="xs"><span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span></div>
+    </div>
+    <div class="word-display"></div>
+    <ul class="keyboard">
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+      <li>D</li>
+      <li>E</li>
+      <li>F</li>
+      <li>G</li>
+      <li>H</li>
+      <li>I</li>
+      <li>J</li>
+      <li>K</li>
+      <li>L</li>
+      <li>M</li>
+      <li>N</li>
+      <li>O</li>
+      <li>P</li>
+      <li>Q</li>
+      <li>R</li>
+      <li>S</li>
+      <li>T</li>
+      <li>U</li>
+      <li>V</li>
+      <li>W</li>
+      <li>X</li>
+      <li>Y</li>
+      <li>Z</li>
+    </ul>
+    <button class="change-back">Change Game</button>
+    <button class='reset-hm' >Reset</button>
+  </section>
+</div>
 <script src='appttt.js'></script>  
 <script src='apphm.js'></script>
 </body>

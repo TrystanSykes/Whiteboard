@@ -5,12 +5,13 @@
 body {
   text-align: center;
   font-family: 'Permanent Marker', cursive;
-  background: url('wbbg.jpg');
-  background-size: 100vw 100vh;
+  margin: 0;
 }
 
 h1 {
   font-size: 3.5em;
+  padding-top: 30px;
+  margin-top: 0;
 }
 
 .board {
@@ -39,7 +40,6 @@ h1 {
   text-align: center;
   margin: 10px;
   font-size: 4em;
-  /*line-height: 110px;*/
   background-color: transparent;
   border: 4px solid black;
   padding: 0;
@@ -102,8 +102,6 @@ h1 {
 
 .results {
   font-size: 3em;
-  /*width: 20%;
-  height: 20%;*/
   display: none;
   background: url('wbbg.jpg');
   background-size: 100vw 100vh;
@@ -121,19 +119,12 @@ h1 {
 }
 
 .win-box {
-  /*border: 20px solid black;*/
   padding: 20vh 0;
-  width: 100vh; 
-  height: 100vh;
   line-height: 30vh;
   float: center;
   display: inline-block;
   font-size: 4em;
   transition: 1s;
-  /*border-top-left-radius: 255px 15px;
-  border-top-right-radius: 200px 20px;
-  border-bottom-right-radius: 10px 300px;
-  border-bottom-left-radius: 5px 150px;*/
 }
 
 .red {
@@ -146,7 +137,7 @@ h1 {
   border-color: blue;
 }
 
-.reset-ttt {
+.reset-ttt, .reset-hm {
   position: fixed;
   bottom: 0;
   right: 30%;
@@ -162,6 +153,7 @@ h1 {
   font-size: 1.5em;
   color: white;
   background-color: transparent;
+  border-radius: 30%;
 }
 
 .x-wins li, .o-wins li {
@@ -193,9 +185,59 @@ h1 {
 }
 
 .hangman {
+  text-align: center;
+  
+}
+
+.flip {
+  transform: rotateX(360deg);
+}
+
+.flipper {
+  transition: 1s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  transform-origin: 100% 50vh;
+  background: url('wbbg.jpg');
+  background-size: 100vw 100vh;
+}
+
+.hangman, .tictactoe {
+  background: url('wbbg.jpg');
+  background-size: 100vw 100vh;
+}
+
+.change-game {
+  border: none;
+  box-shadow: none;
+  font-size: 1.5em;
+  color: black;
+  background-color: transparent;
+  position: fixed;
+  bottom: 5%;
+  left: 20%;
+  padding: 10px;
+  font-family: 'Permanent Marker', cursive;
+} 
+
+.change-back {
+  border: none;
+  box-shadow: none;
+  font-size: 1.5em;
+  color: black;
+  background-color: transparent;
+  position: fixed;
+  bottom: 5%;
+  left: 20%;
+  font-family: 'Permanent Marker', cursive;
+} 
+
+.display-none {
   display: none;
 }
 
-/*.tictactoe {
-  display: none;
-}*/
+section {
+  margin: 0;
+}
