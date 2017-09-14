@@ -31,6 +31,14 @@ h1 {
   width: 60vh;
   height: 60vh;
   }
+
+  .change-game {
+    left: 10%;
+  }
+
+  .change-back {
+    left: 10%;
+  }
 }
 .tablerows div {
   width: 33.3333%;
