@@ -29,12 +29,20 @@ keyboard.addEventListener('click', function() {
 var displayWord = function() {
   var wordPos = getRandomNo(wordArray);
   currentWord = wordArray[wordPos]; 
+  wordArrSplice(wordPos);
   currentWordArr = currentWord.split('');
   currentWordBlanks = [];
   currentWordArr.forEach(function(letter) {
     currentWordBlanks.push('_');
   })
     wordDisplay.textContent = currentWordBlanks.join(' ');
+}
+
+var wordArrSplice = function (wordPos) {
+  wordArray.splice(wordPos, 1)
+  if (wordArray.length === 0) {
+    wordArray = ['poised', 'elegant', 'wrap', 'snatch', 'serve', 'debonair', 'fork', 'report', 'belligerent', 'prefer', 'random', 'develop', 'money', 'curved', 'polish', 'skinny', 'flame', 'obedient', 'gate', 'treat'];
+  }
 }
 
 var compareInput = function(input) {
