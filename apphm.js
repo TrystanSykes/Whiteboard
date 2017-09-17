@@ -1,4 +1,4 @@
-var wordArray = ['poised', 'elegant', 'wrap', 'snatch', 'serve', 'debonair', 'fork', 'report', 'belligerent', 'prefer', 'random', 'develop', 'money', 'curved', 'polish', 'skinny', 'flame', 'obedient', 'gate', 'treat'];
+var wordArray = ['poised', 'elegant', 'wrap', 'snatch', 'serve', 'debonair', 'fork', 'report', 'belligerent', 'prefer', 'random', 'develop', 'money', 'curved', 'polish', 'skinny', 'flame', 'obedient', 'gate', 'treat', 'admire', 'level', 'flowery', 'describe', 'wipe', 'brick', 'ants', 'bless', 'snake', 'absurd', 'truck', 'multiply', 'structure', 'unknown', 'dinosaurs', 'match', 'hard', 'potato', 'cool', 'fang'];
 
 var lowerInput = 'a';
 var currentWord = "";
@@ -46,7 +46,7 @@ var displayWord = function() {
 var wordArrSplice = function (wordPos) {
   wordArray.splice(wordPos, 1)
   if (wordArray.length === 0) {
-    wordArray = ['poised', 'elegant', 'wrap', 'snatch', 'serve', 'debonair', 'fork', 'report', 'belligerent', 'prefer', 'random', 'develop', 'money', 'curved', 'polish', 'skinny', 'flame', 'obedient', 'gate', 'treat'];
+    wordArray = ['poised', 'elegant', 'wrap', 'snatch', 'serve', 'debonair', 'fork', 'report', 'belligerent', 'prefer', 'random', 'develop', 'money', 'curved', 'polish', 'skinny', 'flame', 'obedient', 'gate', 'treat', 'admire', 'level', 'flowery', 'describe', 'wipe', 'brick', 'ants', 'bless', 'snake', 'absurd', 'truck', 'multiply', 'structure', 'unknown', 'dinosaurs', 'match', 'hard', 'potato', 'cool', 'fang'];
   }
 }
 
@@ -130,6 +130,7 @@ var displayHmLose = function () {
   results.style.display = 'block';
   if (score > highScore) {
     highScore = score;
+    localStorage.setItem("highscore", highScore);
   }
   score = 0;
   // if (score > highScore) {
@@ -153,7 +154,7 @@ var displayHmLose = function () {
 
 var resetHangman = function () {
   displayedScore.textContent = 'Score: ' + score;
-  displayedHighScore.textContent = 'High Score: ' + highScore;
+  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("highscore");
   lowerInput = ' ';
   currentWord = "";
   currentWordBlanks = [];
@@ -180,3 +181,4 @@ var flip = function () {
 resetHmBtn.addEventListener('click', resetHangman);
 changeBack.addEventListener('click', flip);
 displayWord();
+displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("highscore");
