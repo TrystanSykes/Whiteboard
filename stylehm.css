@@ -62,8 +62,8 @@
 
 .word-display {
   width: 70%;
-  padding-top: 30vh;
-  padding-bottom: 15vh; 
+  padding-top: 20vh;
+  padding-bottom: 10vh; 
   margin: 0 auto;
   display: block;
   text-align: center;
@@ -74,4 +74,20 @@
 .used {
   text-decoration: line-through;
   color: red;
+}
+
+.score-box {
+  text-align: center;
+  display: inline-block;
+  font-size: 1em;
+  padding: 30px;
+  
+}
+
+h3 {
+  display: inline-block;
+    font-size: 2em;
+    margin: 0;
+    font-weight: normal;
+
 }

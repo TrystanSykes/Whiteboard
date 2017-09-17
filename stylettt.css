@@ -135,6 +135,12 @@ h1 {
   transition: 1s;
 }
 
+.enter-score {
+  font-size: 2em;
+  text-align: center;
+  
+}
+
 .red {
   color: red;
   border-color: red;

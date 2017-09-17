@@ -5,6 +5,8 @@ var currentWord = "";
 var currentWordBlanks = [];
 var wrongGuesses = [];
 var turnCounter = 10;
+var score = 0;
+var highScore = 0;
 
 var keyboard = document.querySelector('.keyboard');
 var wrong = document.querySelector('.wrong');
@@ -13,6 +15,9 @@ var wordDisplay = document.querySelector('.word-display')
 var resetHmBtn = document.querySelector('.reset-hm');
 var changeBack = document.querySelector('.change-back');
 var flipper = document.querySelector('.flipper');
+var displayedScore = document.querySelector('.score');
+var displayedHighScore = document.querySelector('.high-score');
+
 
 keyboard.addEventListener('click', function() {
   if (event.target.tagName === 'UL') {
@@ -112,19 +117,43 @@ var displayHmWin = function () {
   results.appendChild(winBox);
   results.classList.add('cover-all');
   results.style.display = 'block';
+  score += (currentWordBlanks.length - 4);
+  score += turnCounter;
 }
 
 var displayHmLose = function () {
   var winBox = document.createElement('div');
   winBox.className = 'win-box';
-  winBox.textContent = 'You Lose!';
+  winBox.textContent = 'You Lose!' + '\n' + 'Score: ' + score;
   results.appendChild(winBox);
   results.classList.add('cover-all');
   results.style.display = 'block';
+  if (score > highScore) {
+    highScore = score;
+  }
+  score = 0;
+  // if (score > highScore) {
+  //   resetWinBox();
+  //   var enterHighScore = document.createElement('div');
+  //   var enterName = document.createElement('input');
+  //   var confirmButton  =  document.createElement('button');
+  //   enterHighScore.classList.add('enter-score');
+  //   enterHighScore.textContent = 'Enter your initials';
+  //   enterName.style.placeholder = 'AAA'
+  //   results.appendChild(enterHighScore);
+  //   enterHighScore.appendChild(enterName);
+  //   enterHighScore.appendChild(confirmButton);
+  //   // confirmButton.addEventListener('click', function(){
+  //   //   if (enterName.textContent)
+  //   //   localStorage.setItem('initials', en)
+  //   // })
+// } 
 }
 
 
 var resetHangman = function () {
+  displayedScore.textContent = 'Score: ' + score;
+  displayedHighScore.textContent = 'High Score: ' + highScore;
   lowerInput = ' ';
   currentWord = "";
   currentWordBlanks = [];
