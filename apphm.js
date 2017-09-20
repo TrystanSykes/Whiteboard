@@ -160,7 +160,8 @@ var displayHmLose = function () {
 
 var resetHangman = function () {
   displayedScore.textContent = 'Score: ' + score;
-  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name"); + localStorage.getItem("highscore");
+  debugger
+  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name") + ' ' + localStorage.getItem("highscore");
   lowerInput = ' ';
   currentWord = "";
   currentWordBlanks = [];
@@ -185,7 +186,7 @@ var flip = function () {
 }
 
 var getHs = function () {
-  hsName = hsInput.textContent
+  hsName = hsInput.value;
   localStorage.setItem("name", hsName);
   hangman.classList.remove('display-none');
   enterHsBox.classList.add('display-none');
@@ -197,4 +198,4 @@ saveHs.addEventListener('click', getHs);
 resetHmBtn.addEventListener('click', resetHangman);
 changeBack.addEventListener('click', flip);
 displayWord();
-displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("highscore");
+displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name") + ' ' + localStorage.getItem("highscore");
