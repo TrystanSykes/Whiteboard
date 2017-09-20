@@ -7,6 +7,7 @@ var wrongGuesses = [];
 var turnCounter = 10;
 var score = 0;
 var highScore = 0;
+var hsName = 'Trys';
 
 var keyboard = document.querySelector('.keyboard');
 var wrong = document.querySelector('.wrong');
@@ -17,6 +18,9 @@ var changeBack = document.querySelector('.change-back');
 var flipper = document.querySelector('.flipper');
 var displayedScore = document.querySelector('.score');
 var displayedHighScore = document.querySelector('.high-score');
+var enterHsBox = document.querySelector('.enter-hs');
+var hsInput = document.querySelector('.hs-input');
+var saveHs = document.querySelector('.save-hs');
 
 
 keyboard.addEventListener('click', function() {
@@ -131,6 +135,8 @@ var displayHmLose = function () {
   if (score > highScore) {
     highScore = score;
     localStorage.setItem("highscore", highScore);
+    hangman.classList.add('display-none');
+    enterHsBox.classList.remove('display-none');
   }
   score = 0;
   // if (score > highScore) {
@@ -154,7 +160,7 @@ var displayHmLose = function () {
 
 var resetHangman = function () {
   displayedScore.textContent = 'Score: ' + score;
-  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("highscore");
+  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name"); + localStorage.getItem("highscore");
   lowerInput = ' ';
   currentWord = "";
   currentWordBlanks = [];
@@ -178,6 +184,16 @@ var flip = function () {
   hangman.classList.add('display-none');
 }
 
+var getHs = function () {
+  hsName = hsInput.textContent
+  localStorage.setItem("name", hsName);
+  hangman.classList.remove('display-none');
+  enterHsBox.classList.add('display-none');
+}
+
+
+enterHsBox.classList.add('display-none');
+saveHs.addEventListener('click', getHs);
 resetHmBtn.addEventListener('click', resetHangman);
 changeBack.addEventListener('click', flip);
 displayWord();
