@@ -244,7 +244,7 @@ var flip = function () {
 var turn = pickTrueorFalse();
 createBoard();
 displayTurn();
-hangman.classList.add('display-none');
+tictactoe.classList.add('display-none');
 displayedBoard.addEventListener('click', capturePos);
 changeBtn.addEventListener('click', flip);
 results.addEventListener('click', reset);

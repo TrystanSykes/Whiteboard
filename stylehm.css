@@ -86,8 +86,37 @@
 
 h3 {
   display: inline-block;
-    font-size: 2em;
-    margin: 0;
-    font-weight: normal;
+  font-size: 2em;
+  margin: 0;
+  font-weight: normal;
+}
 
+.hs-desc {
+  font-size: 3em;
+  padding-top: 50px; 
+  display: inline-block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.hs-input {
+  display: block;
+  margin-top: 20px;
+  margin: 0 auto;
+  font-size: 2em;
+  padding: 5px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.save-hs {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 2em;
+  padding: 5px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.enter-hs {
+  text-align: center;
 }

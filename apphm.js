@@ -159,9 +159,6 @@ var displayHmLose = function () {
 
 
 var resetHangman = function () {
-  displayedScore.textContent = 'Score: ' + score;
-  debugger
-  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name") + ' ' + localStorage.getItem("highscore");
   lowerInput = ' ';
   currentWord = "";
   currentWordBlanks = [];
@@ -169,6 +166,8 @@ var resetHangman = function () {
   turnCounter = 10;
   turnsLeft.innerHTML = '<span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span> <span>X</span>';
   displayWord();
+  displayedScore.textContent = 'Score: ' + score;
+  displayedHighScore.textContent = 'High Score: ' + localStorage.getItem("name") + ' ' + localStorage.getItem("highscore");
   keyboard.childNodes.forEach(function(key) {
     if (key.tagName === 'LI') { 
       key.classList.remove('used');
@@ -190,6 +189,7 @@ var getHs = function () {
   localStorage.setItem("name", hsName);
   hangman.classList.remove('display-none');
   enterHsBox.classList.add('display-none');
+  resetHangman();
 }
 
 
